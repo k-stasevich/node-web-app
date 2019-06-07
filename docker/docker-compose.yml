@@ -5,3 +5,5 @@ services:
     image: kstasevich/node-web-app
     ports:
       - '3000:3000'
+    volumes:
+      - ../server/.:/app

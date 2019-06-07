@@ -5,8 +5,8 @@
   "author": "k_stasevich",
   "license": "MIT",
   "scripts": {
-    "build-image": "docker build -t kstasevich/node-web-app:v0.0.1 .",
-    "run-image": "docker run -p 4000:3000 kstasevich/node-web-app:v0.0.1"
+    "build-image": "docker build -t kstasevich/node-web-app .",
+    "run-image": "docker run -p 3000:3000 kstasevich/node-web-app"
   },
   "dependencies": {}
 }

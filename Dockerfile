@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM node:latest
+FROM node:10.16.0-jessie
 
 # Set the working directory to /app
 WORKDIR /app
@@ -7,9 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY /server /app
 
-# Install any needed packages specified in requirements.txt
+RUN npm run lint
 RUN npm i
-RUN ls
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
