@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY /server /app
+COPY .eslintrc /
 
 RUN npm run lint
 RUN npm i
