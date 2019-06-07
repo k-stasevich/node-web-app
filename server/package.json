@@ -5,9 +5,17 @@
   "author": "k_stasevich",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly ./app.ts",
+    "prod": "tsc && node ./build/app.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.0.0-pre.39"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "typescript": "^3.5.1"
   }
 }

@@ -1,11 +1,12 @@
 {
   "name": "node-docker",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "main": "app.js",
   "author": "k_stasevich",
   "license": "MIT",
   "scripts": {
     "build-image": "docker build -t kstasevich/node-web-app:v0.0.1 .",
     "run-image": "docker run -p 4000:3000 kstasevich/node-web-app:v0.0.1"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,7 +1,8 @@
-var express = require('express');
-var app = express();
+import express from 'express';
 
-app.get('/smth', function(req, res) {
+const app = express();
+
+app.get('/smth', function(req: express.Request, res: express.Response) {
   res.send({
     success: true,
     data: [],

@@ -21,4 +21,4 @@ ENV http_proxy host:port
 ENV https_proxy host:port
 
 # Run app.py when the container launches
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
