@@ -1,17 +1,20 @@
+import { ActionType, createAction } from 'typesafe-actions';
+
 import { IAuthData } from './authActions';
-import { AUTH_ACTION_TYPES } from './authConstants';
 
 export interface IAuthData {
-  authToken: string;
+  userId: string;
+  accessToken: string;
   refreshToken: string;
 }
 
 export const authActions = {
-  login: () => ({
-    type: AUTH_ACTION_TYPES.LOGIN,
+  login: createAction('LOGIN', action => {
+    return (username: string, password: string) => action({ username, password });
   }),
-  loginSuccess: (authData: IAuthData) => ({
-    type: AUTH_ACTION_TYPES.LOGIN_SUCCESS,
-    payload: authData,
+  loginSuccess: createAction('LOGIN_SUCCESS', action => {
+    return (authData: IAuthData) => action(authData);
   }),
 };
+
+export type AuthActionTypes = ActionType<typeof authActions>;

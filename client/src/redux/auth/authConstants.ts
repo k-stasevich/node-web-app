@@ -1,4 +1,0 @@
-export const AUTH_ACTION_TYPES = {
-  LOGIN: 'LOGIN',
-  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-};

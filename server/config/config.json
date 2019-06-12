@@ -1,0 +1,16 @@
+{
+  "development": {
+    "database": "node_web_app",
+    "username": "root",
+    "password": "rootroot",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "database": "node_web_app",
+    "username": "root",
+    "password": "rootroot",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
