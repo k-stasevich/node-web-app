@@ -20,7 +20,7 @@ router.post('/login', async (req: express.Request, res: express.Response) => {
 
     res.send({ userId: user.id, accessToken, refreshToken });
   } catch (err) {
-    console.error('POST `/login` error');
+    console.error(`${module.filename}, POST '/login' error`);
     console.error(err);
     res.status(500).send({ message: 'SERVER_ERROR', err });
   }

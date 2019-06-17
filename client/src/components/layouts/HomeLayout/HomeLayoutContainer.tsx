@@ -1,22 +1,20 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import './HomeLayout.scss';
 
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { userActions } from '../../../redux/user/userActions';
+import { getUserIdSelector } from '../../../redux/auth/authSelectors';
 import { HomeLayoutComponent } from './HomeLayout';
-import { authActions } from '../../../redux/auth/authActions';
 
-const mapStateToProps = () => {
-  return {
-    isAuthorized: true,
-  };
+export const HomeLayout: React.FC = props => {
+  const userId = useSelector(getUserIdSelector) as string;
+
+  const dispatch = useDispatch();
+
+  const getUserData = useCallback((userId: string) => dispatch(userActions.getUserData(userId)), [
+    dispatch,
+  ]);
+
+  return <HomeLayoutComponent getUserData={getUserData} userId={userId} />;
 };
-
-const mapDispatchToProps = {
-  login: authActions.login,
-};
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
-
-export const HomeLayout = compose(withConnect)(HomeLayoutComponent);
