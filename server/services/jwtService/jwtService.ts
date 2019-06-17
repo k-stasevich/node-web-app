@@ -1,14 +1,15 @@
-import { jwtConfig } from './jwtConfig';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+
+import { jwtConfig } from './jwtConfig';
+import { IUserData } from './../../middlewares/IUserData';
 
 const dayMs = 1000 * 60 * 60 * 24;
 const yearMs = dayMs * 365;
 
-const saltRounds = 10;
-
 export const jwtService = {
   hashPassword(password: string): string {
+    const saltRounds = 10;
     return bcrypt.hashSync(password, saltRounds);
   },
 
@@ -22,6 +23,11 @@ export const jwtService = {
     return jwt.sign(userData, jwtConfig.accessTokenSecret, {
       expiresIn: '30m',
     });
+  },
+
+  verifyAccessToken(token: string): IUserData {
+    const userData = jwt.verify(token, jwtConfig.accessTokenSecret) as IUserData;
+    return userData;
   },
 
   generateRefreshToken(userId: string): string {

@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 import { routes } from './routes';
 import { initDBConnection } from './models';
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use('/api', routes);
 
 const port: number | string = process.env.port || 4000;

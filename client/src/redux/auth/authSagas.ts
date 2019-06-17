@@ -22,9 +22,9 @@ function* loginSaga(action: ReturnType<typeof authActions.login>) {
 
     const { userId, accessToken, refreshToken } = response.data;
 
-    const min = 60;
-    setCookie('acccessToken', accessToken, { expires: 30 * min });
-    setCookie('refreshToken', refreshToken);
+    const hour = 3600;
+    setCookie('accessToken', accessToken, { expires: 0.5 * hour });
+    localStorage.setItem('refreshToken', refreshToken);
 
     yield put(
       authActions.loginSuccess({

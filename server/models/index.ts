@@ -21,5 +21,6 @@ export const initDBConnection = () => {
     })
     .catch(err => {
       console.error('Unable to connect to the database:', err);
+      throw err;
     });
 };
