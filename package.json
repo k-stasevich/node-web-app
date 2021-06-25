@@ -6,7 +6,16 @@
   "license": "MIT",
   "scripts": {
     "build-image": "docker build -t kstasevich/node-web-app .",
-    "run-image": "docker run -p 3000:3000 kstasevich/node-web-app"
+    "run-image": "docker run -p 3000:3000 kstasevich/node-web-app",
+    "cm": "cz"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
